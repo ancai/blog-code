@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>snabbdom-demo4</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module">
+    // import { h, init } from 'https://cdn.jsdelivr.net/npm/snabbdom@3.5.1/+esm'
+    import { h, init } from "./snabbdom@3.5.1.js";
+
+    let patch = init([])
+
+    // 首次渲染
+    let vnode = h('ul', [
+      h('li', '首页'),
+      h('li', '视频'),
+      h('li', '微博')
+    ])
+    let app = document.querySelector('#app')
+    let oldVnode = patch(app, vnode)
+    console.log('oldVnode :', oldVnode);
+    // updateChildren 的执行过程
+    // 更改了结点顺序
+    vnode = h('ul', [
+      h('li', '首页'),
+      h('li', '微博'),
+      h('li', '视频')
+    ])
+    patch(oldVnode, vnode)
+  </script>
+</body>
+</html>

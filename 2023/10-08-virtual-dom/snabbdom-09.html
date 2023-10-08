@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>snabbdom-demo-9</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module">
+    // import { h, init } from 'https://cdn.jsdelivr.net/npm/snabbdom@3.5.1/+esm'
+    import { h, init } from "./snabbdom@3.5.1.js";
+
+    let patch = init([])
+    let vnode = h('view', { }, '自定义的元素')
+
+    let app = document.getElementById('app')
+    let oldVNode = patch(app, vnode); // 首次挂载
+    console.log('oldVNode : ', oldVNode);
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>snabbdom-demo-8</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module">
+    // import { h, init } from 'https://cdn.jsdelivr.net/npm/snabbdom@3.5.1/+esm'
+    import { h, init } from "./snabbdom@3.5.1.js";
+
+    // 1. hello world
+    // 参数：数组，模块
+    // 返回值：patch函数，作用对比两个vnode的差异更新到真实DOM
+    let patch = init([])
+    // 第一个参数：标签+选择器
+    // 第二个参数：如果是字符串的话就是标签中的内容
+    let vnode = h('div#container', { }, 'hello VNode , ---old')
+
+    let app = document.querySelector('#app')
+    // 第一个参数：可以是DOM元素，内部会把DOM元素转换成VNode
+    // 第二个参数：VNode
+    // 返回值：VNde
+    let oldVNode = patch(app, vnode); // 首次挂载
+    console.log('oldVNode : ', oldVNode);
+
+    setTimeout(() => {
+      // 定义一个新的VNode
+      vnode = h('div', 'Hello Virtual DOM  , --- new')
+
+      // 在 3 秒后更新挂载到视图中
+      const newVNode = patch(oldVNode, vnode)
+      console.log('newVNode : ', newVNode);
+    }, 3000);
+  </script>
+</body>
+</html>
