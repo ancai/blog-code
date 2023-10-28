@@ -1,0 +1,14 @@
+.info-box {
+  width: 100%;
+  padding: 10px 30px;
+  margin: 0 auto;
+
+  // theme color
+  color: $theme-color;
+  text-align: center;
+  background-color: #fff;
+
+  p {
+    font-size: 18px;
+  }
+}

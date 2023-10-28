@@ -1,0 +1,8 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-standard-scss", "stylelint-config-recess-order"],
+  "rules": {
+    "block-no-empty": null,
+    "unit-allowed-list": ["em", "rem", "%", "s", "px", "vw", "vh", "ms", "deg"],
+    "alpha-value-notation": ["percentage", { "exceptProperties": ["opacity"] }]
+  }
+}

@@ -1,0 +1,21 @@
+// .stylelintrc.js
+
+module.exports = {
+  extends: [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recess-order"
+  ],
+  plugins: [
+    "stylelint-scss"
+  ],
+  ignoreFiles: [
+    "**/*.{png,jpg,jpeg,gif,bmp,swf,svg,ico}",
+    "**/*.{ttf,woff,eot}",
+    "**/*.{yml,json}"
+  ],
+  rules: {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true
+  }
+}
+
